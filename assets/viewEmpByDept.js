@@ -10,10 +10,15 @@ function viewAllEmpByDept() {
       LEFT JOIN department ON (department.id = jobRole.department_id)
       ORDER BY jobRole.title`;
   db.query(sql, (err, rows) => {
-    if (rows) {
+    if (err) {
+      console.log("**UNEXPECTED ERROR: Sorry your command be carried out**");
+      console.log(err);
+      return;
+    } else if (rows) {
       dataArray = rows;
+      console.table("\n" + "\n");
       console.table(dataArray.slice(1));
-      return rows;
+      console.table("\n" + "\n");
     }
   });
 }

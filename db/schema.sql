@@ -1,8 +1,8 @@
 /*Database statements go here */
 DROP DATABASE IF EXISTS EmployeeTracker_db;
-DROP TABLE IF EXISTS department, jobRole, employee;
+/*DROP TABLE IF EXISTS department, jobRole, employee;*/
 
-CREATE DATABASE IF NOT EXISTS EmployeeTracker_db;
+CREATE DATABASE EmployeeTracker_db;
 
 USE EmployeeTracker_db;
 

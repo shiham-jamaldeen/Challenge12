@@ -5,7 +5,11 @@ const inquirer = require("inquirer");
 const db = require("./config/connection.js");
 
 const viewAllDept = require("./assets/viewAllDept.js");
+const viewAllRoles = require("./assets/viewAllRoles.js");
 const viewAllEmp = require("./assets/viewAllEmp.js");
+const addNewDept = require("./assets/addNewDept.js");
+const addNewRole = require("./assets/addNewRole.js");
+const addNewEmp = require("./assets/addNewEmp.js");
 const viewAllEmpByDept = require("./assets/viewEmpByDept.js");
 
 function splashScreen() {
@@ -32,31 +36,68 @@ function splashScreen() {
       .render()
   );
   console.log("You are now logged on the " + process.env.DB_NAME + " database");
-  console.log(" ");
-  console.log(" ");
+  console.log("\n" + "\n");
 }
 async function getUserOptions() {
-  //variable to store the array of choices
   const userChoices = await inquirer.prompt({
     type: "list",
-    message: "What would you like to do?",
-    choices: ["View all departments", "View all job roles", "Quit"],
+    pageSize: "10",
+    message: "Select an option from the following:",
+    choices: [
+      "View all departments",
+      "View all job roles",
+      "View all employees",
+      "Add a new dept",
+      "Add a new job role",
+      "Add a new employee",
+      "Update employee role",
+      "Quit",
+    ],
     name: "option",
   });
-  if (userChoices.option === "View all departments") {
-    viewAllDept();
-    getUserOptions();
-  } else if (userChoices.option === "Quit") {
-    console.log("Good Bye");
-    db.end();
+  switch (userChoices.option) {
+    case "View all departments":
+      //call function to view all depts
+      viewAllDept();
+      //call the getUserOptions function, with a timeout to prevent the screen contents being overwritten
+      setTimeout(getUserOptions, 5000);
+      break;
+    case "View all job roles":
+      viewAllRoles();
+      //call the getUserOptions function, with a timeout to prevent the screen contents being overwritten
+      setTimeout(getUserOptions, 5000);
+      break;
+    case "View all employees":
+      viewAllEmp();
+      //call the getUserOptions function, with a timeout to prevent the screen contents being overwritten
+      setTimeout(getUserOptions, 5000);
+      break;
+    case "Add a new dept":
+      addNewDept();
+      setTimeout(getUserOptions, 5000);
+      break;
+    case "Add a new job role":
+      //getDeptData(deptArray);
+      addNewRole();
+      setTimeout(getUserOptions, 5000);
+    case "Quit":
+      console.log("\n" + "\n");
+      console.log("Thank you for using Employee Tracker. Good Bye!");
+      return;
+    default:
+      return;
   }
 }
+
 //main
 splashScreen();
-getUserOptions();
+//getUserOptions();
+
 //call modules
 //viewAllDept();
 //viewAllRoles();
 //viewAllEmp();
-
+//addNewDept();
+//addNewRole();
+addNewEmp();
 //viewAllEmpByDept();
