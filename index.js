@@ -45,11 +45,11 @@ async function getUserOptions() {
     message: "Select an option from the following:",
     choices: [
       "View all departments",
-      "View all job roles",
+      "View all roles",
       "View all employees",
-      "Add a new dept",
-      "Add a new job role",
-      "Add a new employee",
+      "Add department",
+      "Add role",
+      "Add employee",
       "Update employee role",
       "Quit",
     ],
@@ -62,7 +62,7 @@ async function getUserOptions() {
       //call the getUserOptions function, with a timeout to prevent the screen contents being overwritten
       setTimeout(getUserOptions, 5000);
       break;
-    case "View all job roles":
+    case "View all roles":
       viewAllRoles();
       //call the getUserOptions function, with a timeout to prevent the screen contents being overwritten
       setTimeout(getUserOptions, 5000);
@@ -72,19 +72,22 @@ async function getUserOptions() {
       //call the getUserOptions function, with a timeout to prevent the screen contents being overwritten
       setTimeout(getUserOptions, 5000);
       break;
-    case "Add a new dept":
+    case "Add department":
       addNewDept();
       setTimeout(getUserOptions, 5000);
       break;
-    case "Add a new job role":
-      //getDeptData(deptArray);
+    case "Add role":
       addNewRole();
       setTimeout(getUserOptions, 5000);
+      break;
+    case "Add employee":
+      addNewEmp();
+      setTimeout(getUserOptions, 15000);
+      break;
     case "Quit":
+      db;
       console.log("\n" + "\n");
       console.log("Thank you for using Employee Tracker. Good Bye!");
-      return;
-    default:
       return;
   }
 }
@@ -99,5 +102,6 @@ splashScreen();
 //viewAllEmp();
 //addNewDept();
 //addNewRole();
-addNewEmp();
+//addNewEmp();
+updateEmpRole();
 //viewAllEmpByDept();
