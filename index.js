@@ -10,6 +10,7 @@ const viewAllEmp = require("./assets/viewAllEmp.js");
 const addNewDept = require("./assets/addNewDept.js");
 const addNewRole = require("./assets/addNewRole.js");
 const addNewEmp = require("./assets/addNewEmp.js");
+const updateEmpRole = require("./assets/updateEmpRole.js");
 const viewAllEmpByDept = require("./assets/viewEmpByDept.js");
 
 function splashScreen() {
@@ -51,6 +52,7 @@ async function getUserOptions() {
       "Add role",
       "Add employee",
       "Update employee role",
+      "Bonus: View employees by department",
       "Quit",
     ],
     name: "option",
@@ -84,8 +86,11 @@ async function getUserOptions() {
       addNewEmp();
       setTimeout(getUserOptions, 15000);
       break;
+    case "Update employee role":
+      updateEmpRole();
+      setTimeout(getUserOptions, 15000);
+      break;
     case "Quit":
-      db;
       console.log("\n" + "\n");
       console.log("Thank you for using Employee Tracker. Good Bye!");
       return;
@@ -94,7 +99,7 @@ async function getUserOptions() {
 
 //main
 splashScreen();
-//getUserOptions();
+getUserOptions();
 
 //call modules
 //viewAllDept();
@@ -103,5 +108,6 @@ splashScreen();
 //addNewDept();
 //addNewRole();
 //addNewEmp();
-updateEmpRole();
+//updateEmpRole();
+
 //viewAllEmpByDept();

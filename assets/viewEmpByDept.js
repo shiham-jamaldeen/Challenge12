@@ -8,7 +8,7 @@ function viewAllEmpByDept() {
       FROM employee
       LEFT JOIN jobRole ON (jobRole.id = employee.role_id)
       LEFT JOIN department ON (department.id = jobRole.department_id)
-      ORDER BY jobRole.title`;
+      ORDER BY jobRole.department.name`;
   db.query(sql, (err, rows) => {
     if (err) {
       console.log("**UNEXPECTED ERROR: Sorry your command be carried out**");
