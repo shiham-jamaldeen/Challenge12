@@ -1,8 +1,6 @@
 require("console.table");
 const db = require("../config/connection.js");
 
-//THEN I am presented with a formatted table showing employee data, including employee ids, first names, last names, job titles, departments, salaries, and managers that the employees report to
-
 function viewAllEmployees() {
   const sql = `SELECT a.id AS Emp_ID, a.first_name AS F_Name, a.last_name AS L_Name, jobRole.title AS Job_Title, jobRole.salary AS AnnualSalary, b.first_name AS Manager_Name, department.dept_name AS Department
   FROM employee a, employee b, jobRole, department 
