@@ -9,6 +9,7 @@ VALUES (200,"Finance"),
 (600,"Customer Service"),
 (700, "Leadership");
 
+
 INSERT INTO jobRole (id, title, salary, department_id) 
 VALUES(401,"Software Engineer", 85000, 400),
 (402,"Technical Writer", 85000, 400),
@@ -38,4 +39,4 @@ VALUES (10001,"George","FACELLO",701, NULL),
 (10012,"Patricia","BRIDGLAND",601,10010),
 (10013,"Eberhardt","TERKKI",601,10010),
 (10014,"Berni","GENIE",501,10007),
-(10015,"Sarah","Perera",401,10002);
+(10015,"Sarah","PEREIRA",401,10002);

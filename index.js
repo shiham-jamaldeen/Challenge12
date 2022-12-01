@@ -1,6 +1,5 @@
 //call libraries
 const logo = require("asciiart-logo");
-require("dotenv").config();
 const inquirer = require("inquirer");
 
 //call all modules
@@ -26,8 +25,8 @@ function splashScreen() {
       padding: 2,
       margin: 3,
       logoColor: "yellow",
-      borderColor: "blue",
-      textColor: "blue",
+      borderColor: "green",
+      textColor: "green",
     })
       .emptyLine()
       .right("Version 1.0")
@@ -37,7 +36,9 @@ function splashScreen() {
       .center(longText2)
       .render()
   );
-  console.log("You are now logged on the " + process.env.DB_NAME + " database");
+  console.log(
+    "You are now logged on to the " + process.env.DB_NAME + " database"
+  );
   console.log("\n" + "\n");
 }
 async function getUserOptions() {
@@ -92,15 +93,15 @@ async function getUserOptions() {
       break;
     case "Add role":
       addNewRole();
-      setTimeout(getUserOptions, 15000);
+      setTimeout(getUserOptions, 20000);
       break;
     case "Add employee":
       addNewEmp();
-      setTimeout(getUserOptions, 15000);
+      setTimeout(getUserOptions, 25000);
       break;
     case "Update employee role":
       updateEmpRole();
-      setTimeout(getUserOptions, 15000);
+      setTimeout(getUserOptions, 25000);
       break;
     case "Quit":
       console.log("\n" + "\n");
@@ -112,14 +113,3 @@ async function getUserOptions() {
 //main
 splashScreen();
 getUserOptions();
-
-//call modules
-//viewAllDept();
-//viewAllRoles();
-//viewAllEmp();
-//addNewDept();
-//addNewRole();
-//addNewEmp();
-//updateEmpRole();
-
-//viewAllEmpByDept();
