@@ -53,6 +53,7 @@ Quit
 ```
 
 ## Preview of the application
+![Preview of the application](./images/applicationPreview.png)
 
 ## Demo and walkthough
 
