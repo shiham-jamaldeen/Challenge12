@@ -5,7 +5,7 @@ require("dotenv").config();
 async function addNewDept() {
   console.log("**ADD NEW DEPARTMENT**");
   const val = await inquirer.prompt([
-    { type: "number", name: "deptID", message: "Enter Dept ID:" },
+    { type: "input", name: "deptID", message: "Enter Dept ID:" },
     { type: "input", name: "deptName", message: "Enter Dept Name: " },
   ]);
   const sql = `INSERT INTO department (department.id, department.dept_name) VALUES (?,?)`;
@@ -13,9 +13,6 @@ async function addNewDept() {
   db.query(sql, [val.deptID, val.deptName], (err, resp) => {
     if (err) {
       console.log("\n" + "\n");
-      console.log(
-        "UNEXPECTED ERROR: Sorry your command cannot be carried out! Please try again"
-      );
       console.log(err.message);
     } else {
       console.log("\n" + "\n");

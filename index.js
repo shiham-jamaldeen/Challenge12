@@ -2,8 +2,8 @@
 const logo = require("asciiart-logo");
 require("dotenv").config();
 const inquirer = require("inquirer");
-const db = require("./config/connection.js");
 
+//call all modules
 const viewAllDept = require("./assets/viewAllDept.js");
 const viewAllRoles = require("./assets/viewAllRoles.js");
 const viewAllEmp = require("./assets/viewAllEmp.js");
@@ -12,6 +12,7 @@ const addNewRole = require("./assets/addNewRole.js");
 const addNewEmp = require("./assets/addNewEmp.js");
 const updateEmpRole = require("./assets/updateEmpRole.js");
 const viewAllEmpByDept = require("./assets/viewEmpByDept.js");
+const viewAllEmpByMngr = require("./assets/viewAllEmpByMngr.js");
 
 function splashScreen() {
   const longText1 = `*** SQL Challenge ***`;
@@ -42,17 +43,18 @@ function splashScreen() {
 async function getUserOptions() {
   const userChoices = await inquirer.prompt({
     type: "list",
-    pageSize: "10",
+    pageSize: "15",
     message: "Select an option from the following:",
     choices: [
       "View all departments",
       "View all roles",
       "View all employees",
+      "Bonus: View all employees by department",
+      "Bonus: View all employees by manager",
       "Add department",
       "Add role",
       "Add employee",
       "Update employee role",
-      "Bonus: View employees by department",
       "Quit",
     ],
     name: "option",
@@ -74,13 +76,23 @@ async function getUserOptions() {
       //call the getUserOptions function, with a timeout to prevent the screen contents being overwritten
       setTimeout(getUserOptions, 5000);
       break;
+    case "Bonus: View all employees by department":
+      viewAllEmpByDept();
+      //call the getUserOptions function, with a timeout to prevent the screen contents being overwritten
+      setTimeout(getUserOptions, 5000);
+      break;
+    case "Bonus: View all employees by manager":
+      viewAllEmpByMngr();
+      //call the getUserOptions function, with a timeout to prevent the screen contents being overwritten
+      setTimeout(getUserOptions, 5000);
+      break;
     case "Add department":
       addNewDept();
-      setTimeout(getUserOptions, 5000);
+      setTimeout(getUserOptions, 10000);
       break;
     case "Add role":
       addNewRole();
-      setTimeout(getUserOptions, 5000);
+      setTimeout(getUserOptions, 15000);
       break;
     case "Add employee":
       addNewEmp();
@@ -93,7 +105,7 @@ async function getUserOptions() {
     case "Quit":
       console.log("\n" + "\n");
       console.log("Thank you for using Employee Tracker. Good Bye!");
-      return;
+      process.exit();
   }
 }
 

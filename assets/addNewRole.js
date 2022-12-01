@@ -40,8 +40,8 @@ function addNewRole() {
         ])
         .then((answers) => {
           //sql statement to insert new row to jobRole table
-          const sql = `INSERT INTO jobRole (id, title, salary, department_id) VALUES (?,?,?,?)`;
-          //console.log(answers.dept.split(" ")[0]);
+          const addNewJobRole = `INSERT INTO jobRole (id, title, salary, department_id) VALUES (?,?,?,?)`;
+
           //write answers to an array
           const vals = [
             answers.jobID,
@@ -49,11 +49,9 @@ function addNewRole() {
             answers.salary,
             answers.dept.split(" ")[0],
           ];
-          console.log(vals);
-          //db.release();
-          db.query(sql, vals, (err, resp) => {
+
+          db.query(addNewJobRole, vals, (err, resp) => {
             if (err) {
-              //console.log("**UNEXPECTED ERROR: Sorry your command cannot be carried out**"");
               console.log(err.message);
             } else if (resp) {
               console.log("Success! Your Txn was saved");
