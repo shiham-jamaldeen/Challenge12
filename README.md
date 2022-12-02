@@ -37,7 +37,7 @@ To start using the Employee Tracker:
 2. Select an option, using the cursor keys on the keyboard.
 3. Follow the commands to carry out a task.
    > Example: To add a new department: Select "Add department" > Enter Dept ID > Enter Dept Name.
-4. The following options are available:
+4. The following options are available.
 
 ```md
 View all departments
@@ -66,7 +66,7 @@ The following are different screenshots of the database, post ADD and UPDATE ope
 
 ### ADD Department
 
-Added: 401 IT Dept
+Added: `401 IT Dept`
 
 ```
 +-----+------------------+
@@ -84,7 +84,7 @@ Added: 401 IT Dept
 
 ### ADD Role
 
-Added: 407 System Admin $89900 401(IT Dept)
+Added: `407 System Admin $89900 401(IT Dept)`
 
 ```
 +-----+-------------------+--------+---------------+
@@ -107,7 +107,7 @@ Added: 407 System Admin $89900 401(IT Dept)
 
 ### ADD Employee
 
-Added: 10018, John CITIZEN, 407 (System Admin), 10002 (Bezalel SIMMEL)
+Added: `10018, John CITIZEN, 407 (System Admin), 10002 (Bezalel SIMMEL)`
 
 ```
 +-------+------------+-----------+---------+------------+
