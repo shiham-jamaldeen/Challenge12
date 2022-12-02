@@ -57,6 +57,7 @@ Quit
 ![screenshot of the application](images/applicationPreview.png)
 
 ## Demo and walkthough
+**Note**: The walk through includes execution of the `MySQL` scripts `schema.sql` and `seeds.sql`.
 
 ![Demo and walkthrough of Employee Tracker app](images/Employee-Tracker-Demo.gif)
 
