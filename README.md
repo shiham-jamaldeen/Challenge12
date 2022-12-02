@@ -27,7 +27,7 @@ The application is created using `node.js`. It utilises the npm package `Inquire
 ```
 
 3. Run the `MySQL` script `schema.sql`. This is needed to create the database and necessary tables and data constraints.
-4. If required, run script `seeds.sql` for adding test data, to test the application.
+4. If required, run script `seeds.sql` for adding test data to test the application.
 
 ## Usage instructions
 
@@ -43,8 +43,8 @@ To start using the Employee Tracker:
 View all departments
 View all roles
 View all employees
-View all employees by department
-View all employees by manager
+View employees by department
+View employees by manager
 Add department
 Add role
 Add employee
@@ -54,15 +54,11 @@ Quit
 
 ## Preview of the application
 
+![screenshot of the application](images/applicationPreview.png)
+
 ## Demo and walkthough
 
-### Employee Tracker Demo 1
-
-![Employee Tracker Demo 1](images/Employee-Tracker-Demo-1.gif)
-
-### Employee Tracker Demo 2
-
-![Employee Tracker Demo 2](images/Employee-Tracker-Demo-2.gif)
+![Demo and walkthrough of Employee Tracker app](images/Employee-Tracker-Demo.gif)
 
 ## Test results
 
@@ -70,22 +66,90 @@ The following are different screenshots of the database, post ADD and UPDATE ope
 
 ### ADD Department
 
-![ADD New Department](./images/addNewDept.png)
+Added: 401 IT Dept
+
+```
++-----+------------------+
+| id  | dept_name        |
++-----+------------------+
+| 200 | Finance          |
+| 300 | Human Resources  |
+| 400 | Engineering      |
+| 401 | IT Dept          |
+| 500 | Sales            |
+| 600 | Customer Service |
+| 700 | Leadership       |
++-----+------------------+
+```
 
 ### ADD Role
 
-![Add New Job Role](./images/addNewRole.png)
+Added: 407 System Admin $89900 401(IT Dept)
+
+```
++-----+-------------------+--------+---------------+
+| id  | title             | salary | department_id |
++-----+-------------------+--------+---------------+
+| 201 | Accountant        |  85000 |           200 |
+| 301 | HR Officer        |  80000 |           300 |
+| 302 | HR Manager        | 100000 |           300 |
+| 401 | Software Engineer |  85000 |           400 |
+| 402 | Technical Writer  |  85000 |           400 |
+| 403 | Eng Manager       | 100000 |           400 |
+| 407 | System Admin      |  89900 |           401 |
+| 501 | Sales Executive   |  80000 |           500 |
+| 502 | Sales Manager     | 100000 |           500 |
+| 601 | CS Officer        |  80000 |           600 |
+| 602 | CS Manager        | 100000 |           600 |
+| 701 | Director          | 150000 |           700 |
++-----+-------------------+--------+---------------+
+```
 
 ### ADD Employee
 
-![Add New Employee](./images/addNewEmp.png)
+Added: 10018, John CITIZEN, 407 (System Admin), 10002 (Bezalel SIMMEL)
+
+```
++-------+------------+-----------+---------+------------+
+| id    | first_name | last_name | role_id | manager_id |
++-------+------------+-----------+---------+------------+
+| 10001 | George     | FACELLO   |     701 |       NULL |
+| 10002 | Bezalel    | SIMMEL    |     403 |      10001 |
+| 10003 | Parto      | BAMFORD   |     401 |      10002 |
+| 10004 | Chirstian  | KOBLIK    |     402 |      10002 |
+| 10005 | Kyoichi    | MALINIAK  |     302 |      10001 |
+| 10006 | Anneke     | PREUSIG   |     301 |      10005 |
+| 10007 | Tzvetan    | ZIELINSKI |     502 |      10001 |
+| 10008 | Saniya     | MIRZAN    |     501 |      10007 |
+| 10009 | Sumant     | THOMAS    |     501 |      10007 |
+| 10010 | Dirk       | VANDORK   |     601 |      10001 |
+| 10011 | Mary       | SLUIS     |     401 |      10010 |
+| 10012 | Patricia   | BRIDGLAND |     601 |      10010 |
+| 10013 | Eberhardt  | TERKKI    |     601 |      10010 |
+| 10014 | Berni      | GENIE     |     501 |      10007 |
+| 10015 | Sarah      | PEREIRA   |     401 |      10002 |
+| 10018 | John       | Citizen   |     407 |      10002 |
++-------+------------+-----------+---------+------------+
+```
 
 ### UPDATE Employee Role
 
-#### Before
+### Before
 
-![Before - update employee job role ](images/update-empRole-Before.png)
+```
++-------+------------+-----------+---------+------------+
+| id    | first_name | last_name | role_id | manager_id |
++-------+------------+-----------+---------+------------+
+| 10011 | Mary       | SLUIS     |     601 |      10010 |
++-------+------------+-----------+---------+------------+
+```
 
 #### After
 
-![After - update employee job role ](images/update-EmpRoleAfter.png)
+```
++-------+------------+-----------+---------+------------+
+| id    | first_name | last_name | role_id | manager_id |
++-------+------------+-----------+---------+------------+
+| 10011 | Mary       | SLUIS     |     401 |      10010 |
++-------+------------+-----------+---------+------------+
+```

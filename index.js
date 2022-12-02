@@ -50,8 +50,8 @@ async function getUserOptions() {
       "View all departments",
       "View all roles",
       "View all employees",
-      "Bonus: View all employees by department",
-      "Bonus: View all employees by manager",
+      "Bonus: View employees by department",
+      "Bonus: View employees by manager",
       "Add department",
       "Add role",
       "Add employee",
@@ -77,12 +77,12 @@ async function getUserOptions() {
       //call the getUserOptions function, with a timeout to prevent the screen contents being overwritten
       setTimeout(getUserOptions, 5000);
       break;
-    case "Bonus: View all employees by department":
+    case "Bonus: View employees by department":
       viewAllEmpByDept();
       //call the getUserOptions function, with a timeout to prevent the screen contents being overwritten
       setTimeout(getUserOptions, 5000);
       break;
-    case "Bonus: View all employees by manager":
+    case "Bonus: View employees by manager":
       viewAllEmpByMngr();
       //call the getUserOptions function, with a timeout to prevent the screen contents being overwritten
       setTimeout(getUserOptions, 5000);
@@ -106,6 +106,7 @@ async function getUserOptions() {
     case "Quit":
       console.log("\n" + "\n");
       console.log("Thank you for using Employee Tracker. Good Bye!");
+      console.log("\n" + "\n");
       process.exit();
   }
 }

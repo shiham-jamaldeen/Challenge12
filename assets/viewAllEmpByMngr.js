@@ -12,7 +12,7 @@ function viewAllEmpByMngr() {
     } else {
       dataArray = rows;
       console.table("\n" + "\n");
-      console.table(dataArray.slice(1));
+      console.table(dataArray.slice(0));
       console.table("\n" + "\n");
     }
   });
