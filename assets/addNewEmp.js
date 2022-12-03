@@ -76,6 +76,7 @@ function addNewEmp() {
           console.log("\n" + "\n");
           console.log(err.message);
         } else {
+          db.commit();
           console.log("\n" + "\n");
           console.log(
             "Success! your data was saved to " +
