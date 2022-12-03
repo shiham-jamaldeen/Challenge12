@@ -58,6 +58,7 @@ function addNewRole() {
         if (err) {
           console.log(err.message);
         } else if (resp) {
+          db.commit();
           console.log("Success! Your Txn was saved");
           console.log("\n" + "\n");
         }
