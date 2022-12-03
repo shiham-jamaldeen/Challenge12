@@ -58,6 +58,7 @@ function updateEmpRole() {
           console.log("\n" + "\n");
           console.log(err.message);
         } else {
+          db.commit();
           console.log("\n" + "\n");
           console.log("Success! Transaction was saved");
           console.log("\n" + "\n");
